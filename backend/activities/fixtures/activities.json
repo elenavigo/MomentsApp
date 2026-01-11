@@ -1,0 +1,57 @@
+[
+  {
+    "model": "activities.activity",
+    "pk": 1,
+    "fields": {
+      "title": "Tapas Tour in the City Center",
+      "description": "Gastronomic tour through traditional bars in the historic city center.",
+      "image_url": "https://images.unsplash.com/photo-1544025162-d76694265947",
+      "min_people": 4,
+      "max_people": 10
+    }
+  },
+  {
+    "model": "activities.activity",
+    "pk": 2,
+    "fields": {
+      "title": "Corporate Escape Room",
+      "description": "Collaborative activity to solve puzzles and team challenges.",
+      "image_url": "https://images.unsplash.com/photo-1603575448360-153f093fd0a9",
+      "min_people": 3,
+      "max_people": 6
+    }
+  },
+  {
+    "model": "activities.activity",
+    "pk": 3,
+    "fields": {
+      "title": "Mediterranean Cooking Class",
+      "description": "Private cooking class with a professional chef and final tasting.",
+      "image_url": "https://images.unsplash.com/photo-1551218808-94e220e084d2",
+      "min_people": 5,
+      "max_people": 12
+    }
+  },
+  {
+    "model": "activities.activity",
+    "pk": 4,
+    "fields": {
+      "title": "City Bike Tour",
+      "description": "Guided bike tour through the main points of interest.",
+      "image_url": "https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf",
+      "min_people": 6,
+      "max_people": 15
+    }
+  },
+  {
+    "model": "activities.activity",
+    "pk": 5,
+    "fields": {
+      "title": "Local Wine Tasting",
+      "description": "Guided tasting of local wines with a sommelier.",
+      "image_url": "https://images.unsplash.com/photo-1510626176961-4b57d4fbad03",
+      "min_people": 4,
+      "max_people": 8
+    }
+  }
+]

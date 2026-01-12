@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getActivities, Activity } from "../api/activities";
+import { getActivities, type Activity } from "../api/activities";
 
 export const ActivitiesPage = () => {
     const [activities, setActivities] = useState<Activity[]>([]);

@@ -5,7 +5,7 @@
     "fields": {
       "title": "Tapas Tour in the City Center",
       "description": "Gastronomic tour through traditional bars in the historic city center.",
-      "image_url": "https://images.unsplash.com/photo-1544025162-d76694265947",
+      "image_url": "https://images.unsplash.com/photo-1581357011940-10701bfc7350",
       "min_people": 4,
       "max_people": 10,
       "location": { "lat": 41.3839, "lng": 2.1763 }
@@ -89,7 +89,7 @@
     "fields": {
       "title": "Wine & Cheese Pairing Workshop",
       "description": "Interactive workshop learning how to pair wines and cheeses while networking.",
-      "image_url": "https://images.unsplash.com/photo-1510626176961-4b57d4fbad03",
+      "image_url": "https://images.unsplash.com/photo-1553653760-d787a53b4bbe",
       "min_people": 4,
       "max_people": 12,
       "location": { "lat": 41.3825, "lng": 2.1707 }
@@ -149,7 +149,7 @@
     "fields": {
       "title": "CSR Volunteering Experience",
       "description": "Corporate social responsibility activity supporting local community projects.",
-      "image_url": "https://images.unsplash.com/photo-1509099836639-18ba1795216d",
+      "image_url": "https://images.unsplash.com/photo-1758599668178-d9716bbda9d5",
       "min_people": 6,
       "max_people": 40,
       "location": { "lat": 41.3564, "lng": 2.1554 }
@@ -161,7 +161,7 @@
     "fields": {
       "title": "Kayaking Team Adventure",
       "description": "Outdoor kayaking experience promoting coordination and trust among teams.",
-      "image_url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
+      "image_url": "https://images.unsplash.com/photo-1689841667559-248614a3c9d4",
       "min_people": 6,
       "max_people": 18,
       "location": { "lat": 41.6742, "lng": 2.7903 }
@@ -185,7 +185,7 @@
     "fields": {
       "title": "Office Olympics",
       "description": "Fun mini-games inspired by sports to encourage friendly competition.",
-      "image_url": "https://images.unsplash.com/photo-1526403226-0f97c9f1c9c3",
+      "image_url": "https://images.unsplash.com/photo-1716703742196-9986679eb03f",
       "min_people": 8,
       "max_people": 30,
       "location": { "lat": 41.3640, "lng": 2.1487 }
@@ -245,7 +245,7 @@
     "fields": {
       "title": "Photography Walk",
       "description": "Guided photography walk encouraging creativity and visual storytelling.",
-      "image_url": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",
+      "image_url": "https://images.unsplash.com/photo-1531130084172-df0239179eb7",
       "min_people": 4,
       "max_people": 12,
       "location": { "lat": 41.3712, "lng": 2.1891 }

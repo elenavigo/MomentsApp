@@ -8,19 +8,21 @@
       "image_url": "https://images.unsplash.com/photo-1581357011940-10701bfc7350",
       "min_people": 4,
       "max_people": 10,
-      "location": { "lat": 41.3839, "lng": 2.1763 }
+      "location": { "lat": 41.3839, "lng": 2.1763 },
+      "category": "gastronomy"
     }
   },
   {
     "model": "activities.activity",
     "pk": 2,
     "fields": {
-      "title": "Corporate Escape Room",
+      "title": "corporate Escape Room",
       "description": "Collaborative activity to solve puzzles and team challenges.",
       "image_url": "https://images.unsplash.com/photo-1581143761812-6d1474cdb9d4",
       "min_people": 3,
       "max_people": 6,
-      "location": { "lat": 41.3902, "lng": 2.1540 }
+      "location": { "lat": 41.3902, "lng": 2.1540 },
+      "category": "corporate"
     }
   },
   {
@@ -32,7 +34,8 @@
       "image_url": "https://images.unsplash.com/photo-1551218808-94e220e084d2",
       "min_people": 5,
       "max_people": 12,
-      "location": { "lat": 41.3948, "lng": 2.1610 }
+      "location": { "lat": 41.3948, "lng": 2.1610 },
+      "category": "gastronomy"
     }
   },
   {
@@ -44,7 +47,8 @@
       "image_url": "https://images.unsplash.com/photo-1567070694334-1c48494f8995",
       "min_people": 6,
       "max_people": 15,
-      "location": { "lat": 41.3765, "lng": 2.1920 }
+      "location": { "lat": 41.3765, "lng": 2.1920 },
+      "category": "adventure"
     }
   },
   {
@@ -56,7 +60,8 @@
       "image_url": "https://images.unsplash.com/photo-1690986535140-dc095e75b726",
       "min_people": 4,
       "max_people": 8,
-      "location": { "lat": 41.3994, "lng": 2.1701 }
+      "location": { "lat": 41.3994, "lng": 2.1701 },
+      "category": "gastronomy"
     }
   },
   {
@@ -68,7 +73,8 @@
       "image_url": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d",
       "min_people": 6,
       "max_people": 20,
-      "location": { "lat": 41.4120, "lng": 2.1800 }
+      "location": { "lat": 41.4120, "lng": 2.1800 },
+      "category": "corporate"
     }
   },
   {
@@ -80,7 +86,8 @@
       "image_url": "https://images.unsplash.com/photo-1556910103-1c02745aae4d",
       "min_people": 6,
       "max_people": 16,
-      "location": { "lat": 41.3879, "lng": 2.1590 }
+      "location": { "lat": 41.3879, "lng": 2.1590 },
+      "category": "corporate"
     }
   },
   {
@@ -92,7 +99,8 @@
       "image_url": "https://images.unsplash.com/photo-1553653760-d787a53b4bbe",
       "min_people": 4,
       "max_people": 12,
-      "location": { "lat": 41.3825, "lng": 2.1707 }
+      "location": { "lat": 41.3825, "lng": 2.1707 },
+      "category": "gastronomy"
     }
   },
   {
@@ -100,11 +108,12 @@
     "pk": 9,
     "fields": {
       "title": "Innovation Hackathon",
-      "description": "Creative problem-solving session where teams develop innovative ideas together.",
+      "description": "creative problem-solving session where teams develop innovative ideas together.",
       "image_url": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4",
       "min_people": 6,
       "max_people": 30,
-      "location": { "lat": 41.3974, "lng": 2.1916 }
+      "location": { "lat": 41.3974, "lng": 2.1916 },
+      "category": "learning"
     }
   },
   {
@@ -116,7 +125,8 @@
       "image_url": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",
       "min_people": 6,
       "max_people": 25,
-      "location": { "lat": 41.3810, "lng": 2.1734 }
+      "location": { "lat": 41.3810, "lng": 2.1734 },
+      "category": "adventure"
     }
   },
   {
@@ -128,7 +138,8 @@
       "image_url": "https://images.unsplash.com/photo-1507924538820-ede94a04019d",
       "min_people": 5,
       "max_people": 15,
-      "location": { "lat": 41.4036, "lng": 2.1744 }
+      "location": { "lat": 41.4036, "lng": 2.1744 },
+      "category": "creative"
     }
   },
   {
@@ -140,7 +151,8 @@
       "image_url": "https://images.unsplash.com/photo-1506126613408-eca07ce68773",
       "min_people": 4,
       "max_people": 20,
-      "location": { "lat": 41.4101, "lng": 2.1526 }
+      "location": { "lat": 41.4101, "lng": 2.1526 },
+      "category": "learning"
     }
   },
   {
@@ -148,23 +160,25 @@
     "pk": 13,
     "fields": {
       "title": "CSR Volunteering Experience",
-      "description": "Corporate social responsibility activity supporting local community projects.",
+      "description": "corporate social responsibility activity supporting local community projects.",
       "image_url": "https://images.unsplash.com/photo-1758599668178-d9716bbda9d5",
       "min_people": 6,
       "max_people": 40,
-      "location": { "lat": 41.3564, "lng": 2.1554 }
+      "location": { "lat": 41.3564, "lng": 2.1554 },
+      "category": "learning"
     }
   },
   {
     "model": "activities.activity",
     "pk": 14,
     "fields": {
-      "title": "Kayaking Team Adventure",
+      "title": "Kayaking Team adventure",
       "description": "Outdoor kayaking experience promoting coordination and trust among teams.",
       "image_url": "https://images.unsplash.com/photo-1689841667559-248614a3c9d4",
       "min_people": 6,
       "max_people": 18,
-      "location": { "lat": 41.6742, "lng": 2.7903 }
+      "location": { "lat": 41.6742, "lng": 2.7903 },
+      "category": "adventure"
     }
   },
   {
@@ -176,7 +190,8 @@
       "image_url": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d",
       "min_people": 5,
       "max_people": 25,
-      "location": { "lat": 41.3928, "lng": 2.1620 }
+      "location": { "lat": 41.3928, "lng": 2.1620 },
+      "category": "corporate"
     }
   },
   {
@@ -188,19 +203,21 @@
       "image_url": "https://images.unsplash.com/photo-1716703742196-9986679eb03f",
       "min_people": 8,
       "max_people": 30,
-      "location": { "lat": 41.3640, "lng": 2.1487 }
+      "location": { "lat": 41.3640, "lng": 2.1487 },
+      "category": "corporate"
     }
   },
   {
     "model": "activities.activity",
     "pk": 17,
     "fields": {
-      "title": "Creative Painting Workshop",
+      "title": "creative Painting Workshop",
       "description": "Collaborative painting session to boost creativity and team bonding.",
       "image_url": "https://images.unsplash.com/photo-1513364776144-60967b0f800f",
       "min_people": 4,
       "max_people": 14,
-      "location": { "lat": 41.4007, "lng": 2.1585 }
+      "location": { "lat": 41.4007, "lng": 2.1585 },
+      "category": "creative"
     }
   },
   {
@@ -212,7 +229,8 @@
       "image_url": "https://images.unsplash.com/photo-1593508512255-86ab42a8e620",
       "min_people": 4,
       "max_people": 10,
-      "location": { "lat": 41.3890, "lng": 2.1658 }
+      "location": { "lat": 41.3890, "lng": 2.1658 },
+      "category": "corporate"
     }
   },
   {
@@ -224,7 +242,8 @@
       "image_url": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3",
       "min_people": 5,
       "max_people": 25,
-      "location": { "lat": 41.3950, "lng": 2.1815 }
+      "location": { "lat": 41.3950, "lng": 2.1815 },
+      "category": "learning"
     }
   },
   {
@@ -236,7 +255,8 @@
       "image_url": "https://images.unsplash.com/photo-1507924538820-ede94a04019d",
       "min_people": 5,
       "max_people": 15,
-      "location": { "lat": 41.3809, "lng": 2.1675 }
+      "location": { "lat": 41.3809, "lng": 2.1675 },
+      "category": "creative"
     }
   },
   {
@@ -248,7 +268,8 @@
       "image_url": "https://images.unsplash.com/photo-1531130084172-df0239179eb7",
       "min_people": 4,
       "max_people": 12,
-      "location": { "lat": 41.3712, "lng": 2.1891 }
+      "location": { "lat": 41.3712, "lng": 2.1891 },
+      "category": "creative"
     }
   },
   {
@@ -260,7 +281,8 @@
       "image_url": "https://images.unsplash.com/photo-1501004318641-b39e6451bec6",
       "min_people": 6,
       "max_people": 30,
-      "location": { "lat": 41.4181, "lng": 2.2146 }
+      "location": { "lat": 41.4181, "lng": 2.2146 },
+      "category": "learning"
     }
   },
   {
@@ -272,7 +294,8 @@
       "image_url": "https://images.unsplash.com/photo-1511512578047-dfb367046420",
       "min_people": 6,
       "max_people": 40,
-      "location": { "lat": 41.3755, "lng": 2.1499 }
+      "location": { "lat": 41.3755, "lng": 2.1499 },
+      "category": "corporate"
     }
   },
   {
@@ -284,7 +307,8 @@
       "image_url": "https://images.unsplash.com/photo-1506784983877-45594efa4cbe",
       "min_people": 5,
       "max_people": 25,
-      "location": { "lat": 41.3862, "lng": 2.1739 }
+      "location": { "lat": 41.3862, "lng": 2.1739 },
+      "category": "learning"
     }
   },
   {
@@ -296,7 +320,268 @@
       "image_url": "https://images.unsplash.com/photo-1506126613408-eca07ce68773",
       "min_people": 4,
       "max_people": 20,
-      "location": { "lat": 41.5819, "lng": 1.8339 }
+      "location": { "lat": 41.5819, "lng": 1.8339 },
+      "category": "adventure"
+    }
+  },
+  {
+    "model": "activities.activity",
+    "pk": 26,
+    "fields": {
+      "title": "Paella Cooking Workshop",
+      "description": "Learn to cook authentic Spanish paella with a professional chef.",
+      "image_url": "https://images.unsplash.com/photo-1589302168068-964664d93dc0",
+      "min_people": 4,
+      "max_people": 12,
+      "location": { "lat": 41.3851, "lng": 2.1734 },
+      "category": "gastronomy"
+    }
+  },
+  {
+    "model": "activities.activity",
+    "pk": 27,
+    "fields": {
+      "title": "Chocolate Tasting Experience",
+      "description": "Taste artisan chocolates and learn about the chocolate-making process.",
+      "image_url": "https://images.unsplash.com/photo-1610450949065-1f2841536c88",
+      "min_people": 4,
+      "max_people": 10,
+      "location": { "lat": 41.3891, "lng": 2.1649 },
+      "category": "gastronomy"
+    }
+  },
+  {
+    "model": "activities.activity",
+    "pk": 28,
+    "fields": {
+      "title": "Beach Volleyball Team Challenge",
+      "description": "Fun beach volleyball games to improve teamwork and coordination.",
+      "image_url": "https://images.unsplash.com/photo-1614248713054-347af2e51ca6",
+      "min_people": 6,
+      "max_people": 20,
+      "location": { "lat": 41.3905, "lng": 2.1975 },
+      "category": "adventure"
+    }
+  },
+  {
+    "model": "activities.activity",
+    "pk": 29,
+    "fields": {
+      "title": "Tapas & Wine Pairing Evening",
+      "description": "Evening tasting pairing local wines with traditional tapas.",
+      "image_url": "https://images.unsplash.com/photo-1690986535140-dc095e75b726",
+      "min_people": 4,
+      "max_people": 12,
+      "location": { "lat": 41.3839, "lng": 2.1763 },
+      "category": "gastronomy"
+    }
+  },
+  {
+    "model": "activities.activity",
+    "pk": 30,
+    "fields": {
+      "title": "Barcelona Rooftop Yoga",
+      "description": "Morning yoga session on a rooftop overlooking the city.",
+      "image_url": "https://images.unsplash.com/photo-1588286840104-8957b019727f",
+      "min_people": 4,
+      "max_people": 15,
+      "location": { "lat": 41.4036, "lng": 2.1744 },
+      "category": "adventure"
+    }
+  },
+  {
+    "model": "activities.activity",
+    "pk": 31,
+    "fields": {
+      "title": "Street Art Walking Tour",
+      "description": "Discover Barcelona's vibrant street art and urban murals.",
+      "image_url": "https://images.unsplash.com/photo-1604716053460-3f66248bf8de",
+      "min_people": 6,
+      "max_people": 15,
+      "location": { "lat": 41.3818, "lng": 2.1672 },
+      "category": "creative"
+    }
+  },
+  {
+    "model": "activities.activity",
+    "pk": 32,
+    "fields": {
+      "title": "Meditation & Mindfulness Workshop",
+      "description": "Guided session to reduce stress and improve focus.",
+      "image_url": "https://images.unsplash.com/photo-1643682661044-f0c34205dd65",
+      "min_people": 4,
+      "max_people": 12,
+      "location": { "lat": 41.4101, "lng": 2.1526 },
+      "category": "learning"
+    }
+  },
+  {
+    "model": "activities.activity",
+    "pk": 33,
+    "fields": {
+      "title": "Sailing Team adventure",
+      "description": "Learn basic sailing techniques while strengthening team coordination.",
+      "image_url": "https://images.unsplash.com/photo-1739125834073-8f79c555259b",
+      "min_people": 6,
+      "max_people": 18,
+      "location": { "lat": 41.3905, "lng": 2.2160 },
+      "category": "adventure"
+    }
+  },
+  {
+    "model": "activities.activity",
+    "pk": 34,
+    "fields": {
+      "title": "corporate Strategy Game",
+      "description": "Simulated business challenges to enhance strategic thinking.",
+      "image_url": "https://images.unsplash.com/photo-1551836022-d5d88e9218df",
+      "min_people": 6,
+      "max_people": 20,
+      "location": { "lat": 41.3870, "lng": 2.1700 },
+      "category": "corporate"
+    }
+  },
+  {
+    "model": "activities.activity",
+    "pk": 35,
+    "fields": {
+      "title": "Barcelona Sunset Kayak",
+      "description": "Evening kayaking along the coast enjoying the sunset.",
+      "image_url": "https://images.unsplash.com/photo-1739125834073-8f79c555259b",
+      "min_people": 4,
+      "max_people": 12,
+      "location": { "lat": 41.3825, "lng": 2.1870 },
+      "category": "adventure"
+    }
+  },
+  {
+    "model": "activities.activity",
+    "pk": 36,
+    "fields": {
+      "title": "creative Writing Workshop",
+      "description": "Boost creativity and storytelling skills in a collaborative environment.",
+      "image_url": "https://images.unsplash.com/photo-1455390582262-044cdead277a",
+      "min_people": 4,
+      "max_people": 12,
+      "location": { "lat": 41.3948, "lng": 2.1610 },
+      "category": "creative"
+    }
+  },
+  {
+    "model": "activities.activity",
+    "pk": 37,
+    "fields": {
+      "title": "Gourmet Cheese Tasting",
+      "description": "Taste and learn about the region's finest cheeses paired with wines.",
+      "image_url": "https://images.unsplash.com/photo-1558221693-89a565d7ecd8",
+      "min_people": 4,
+      "max_people": 10,
+      "location": { "lat": 41.3825, "lng": 2.1707 },
+      "category": "gastronomy"
+    }
+  },
+  {
+    "model": "activities.activity",
+    "pk": 38,
+    "fields": {
+      "title": "Barcelona Photography Workshop",
+      "description": "Learn photography techniques while exploring iconic city spots.",
+      "image_url": "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f",
+      "min_people": 4,
+      "max_people": 12,
+      "location": { "lat": 41.3810, "lng": 2.1734 },
+      "category": "creative"
+    }
+  },
+  {
+    "model": "activities.activity",
+    "pk": 39,
+    "fields": {
+      "title": "Team Orienteering Challenge",
+      "description": "Outdoor navigation and problem-solving challenge across Barcelona.",
+      "image_url": "https://images.unsplash.com/photo-1718120220161-97fc64db1b7a",
+      "min_people": 6,
+      "max_people": 20,
+      "location": { "lat": 41.3765, "lng": 2.1920 },
+      "category": "adventure"
+    }
+  },
+  {
+    "model": "activities.activity",
+    "pk": 40,
+    "fields": {
+      "title": "corporate Innovation Workshop",
+      "description": "Hands-on workshop to foster creative ideas and business solutions.",
+      "image_url": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4",
+      "min_people": 6,
+      "max_people": 25,
+      "location": { "lat": 41.3974, "lng": 2.1916 },
+      "category": "corporate"
+    }
+  },
+  {
+    "model": "activities.activity",
+    "pk": 41,
+    "fields": {
+      "title": "Seafood Cooking Experience",
+      "description": "Learn to prepare traditional Catalan seafood dishes.",
+      "image_url": "https://images.unsplash.com/photo-1758872044232-449046a48b26",
+      "min_people": 4,
+      "max_people": 10,
+      "location": { "lat": 41.3851, "lng": 2.1734 },
+      "category": "gastronomy"
+    }
+  },
+  {
+    "model": "activities.activity",
+    "pk": 42,
+    "fields": {
+      "title": "Mindful Hiking in Montjuïc",
+      "description": "Guided hiking session focusing on mindfulness and nature observation.",
+      "image_url": "https://images.unsplash.com/photo-1652926496137-e96c7ba762cd",
+      "min_people": 4,
+      "max_people": 15,
+      "location": { "lat": 41.3630, "lng": 2.1660 },
+      "category": "learning"
+    }
+  },
+  {
+    "model": "activities.activity",
+    "pk": 43,
+    "fields": {
+      "title": "Street Photography Walk",
+      "description": "Explore Barcelona streets while improving photography skills.",
+      "image_url": "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f",
+      "min_people": 4,
+      "max_people": 12,
+      "location": { "lat": 41.3712, "lng": 2.1891 },
+      "category": "creative"
+    }
+  },
+  {
+    "model": "activities.activity",
+    "pk": 44,
+    "fields": {
+      "title": "Barcelona Wine Cellar Tour",
+      "description": "Visit local wine cellars and enjoy a guided tasting session.",
+      "image_url": "https://images.unsplash.com/photo-1690986535140-dc095e75b726",
+      "min_people": 4,
+      "max_people": 12,
+      "location": { "lat": 41.3994, "lng": 2.1701 },
+      "category": "gastronomy"
+    }
+  },
+  {
+    "model": "activities.activity",
+    "pk": 45,
+    "fields": {
+      "title": "Team Beach Cleanup",
+      "description": "corporate volunteering activity combining environmental impact with teamwork.",
+      "image_url": "https://images.unsplash.com/photo-1610213989414-acc5773ba2c6",
+      "min_people": 6,
+      "max_people": 25,
+      "location": { "lat": 41.3905, "lng": 2.1975 },
+      "category": "learning"
     }
   }
 ]

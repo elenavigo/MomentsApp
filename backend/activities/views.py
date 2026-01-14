@@ -13,6 +13,7 @@ class ActivityListView(APIView):
                 "image_url": activity.image_url,
                 "min_people": activity.min_people,
                 "max_people": activity.max_people,
+                "category": activity.category,
             }
             for activity in activities
         ]

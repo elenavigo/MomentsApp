@@ -7,6 +7,7 @@ export interface Activity {
     image_url: string;
     min_people: number;
     max_people: number;
+    category: string;
 }
 
 export async function getActivities(): Promise<Activity[]> {

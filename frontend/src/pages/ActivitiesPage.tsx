@@ -1,20 +1,46 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { getActivities, type Activity } from '../api/activities';
 import { ActivityCard } from './ActivityCard';
 
 export const ActivitiesPage = () => {
   const [activities, setActivities] = useState<Activity[]>([]);
   const [loading, setLoading] = useState(true);
+  const [loadingMore, setLoadingMore] = useState(false);
+  const [nextPage, setNextPage] = useState<string | null>(null);
+
+  const loadMore = useCallback(async () => {
+    if (!nextPage) return;
+
+    setLoadingMore(true);
+
+    const data = await getActivities(nextPage);
+    setActivities((prev) => [...prev, ...data.results]);
+    setNextPage(data.next);
+
+    setLoadingMore(false);
+  }, [nextPage]);
 
   useEffect(() => {
     const fetchActivities = async () => {
-      const activitiess = await getActivities();
-      setActivities(activitiess);
+      const data = await getActivities();
+      setActivities(data.results);
+      setNextPage(data.next);
       setLoading(false);
     };
 
     fetchActivities();
-  }, []);
+
+    const handleScroll = () => {
+      const hasScrolledToBottom =
+        window.scrollY + window.innerHeight >=
+        document.documentElement.scrollHeight - 100;
+
+      if (hasScrolledToBottom) loadMore();
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [loadMore]);
 
   if (loading) {
     return (
@@ -25,7 +51,7 @@ export const ActivitiesPage = () => {
   }
 
   return (
-    <div className="flex-1 overflow-y-auto p-8">
+    <div className="flex-1 p-8">
       <span className="text-2xl font-medium uppercase tracking-wide">
         Moments
       </span>
@@ -40,6 +66,11 @@ export const ActivitiesPage = () => {
           <ActivityCard key={activity.id} activity={activity} />
         ))}
       </ul>
+      {loadingMore && (
+        <p className="text-center mt-6 text-gray-500">
+          Loading more activities...
+        </p>
+      )}
     </div>
   );
 };

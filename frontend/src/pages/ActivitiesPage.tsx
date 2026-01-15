@@ -26,15 +26,13 @@ export const ActivitiesPage = () => {
 
   return (
     <div className="flex-1 overflow-y-auto p-8">
-      <span className="text-sm font-medium text-blue-600 uppercase tracking-wide">
+      <span className="text-2xl font-medium uppercase tracking-wide">
         Moments
       </span>
 
-      <h3 className="text-3xl font-bold mt-2">Moments</h3>
-
       <p className="text-gray-600 mt-2 mb-10 max-w-2xl">
         Great teams are built through shared moments. Discover simple, memorable
-        activities for your team — just a couple of clicks away.
+        activities for your team. Just a couple of clicks away.
       </p>
 
       <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

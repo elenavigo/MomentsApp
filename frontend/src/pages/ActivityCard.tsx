@@ -10,7 +10,7 @@ const categoryTypeColors: Record<string, string> = {
 
 export const ActivityCard = ({ activity }: { activity: Activity }) => {
   return (
-    <li className="group bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden">
+    <li className="group bg-white rounded-2xl shadow-sm shadow-lg hover:scale-105 transition-all duration-300 overflow-hidden">
       <div className="relative h-48">
         <img
           src={activity.image_url}
@@ -27,7 +27,7 @@ export const ActivityCard = ({ activity }: { activity: Activity }) => {
         </span>
       </div>
 
-      <div className="p-6 flex flex-col h-full">
+      <div className="p-6 flex flex-col">
         <h2 className="text-lg font-semibold mb-2">{activity.title}</h2>
 
         <p className="text-gray-600 text-sm mb-4 line-clamp-3">
@@ -39,7 +39,7 @@ export const ActivityCard = ({ activity }: { activity: Activity }) => {
             Ideal for {activity.min_people}–{activity.max_people} people
           </span>
 
-          <span className="font-medium text-blue-600 group-hover:underline">
+          <span className="font-medium group-hover:underline">
             View details →
           </span>
         </div>

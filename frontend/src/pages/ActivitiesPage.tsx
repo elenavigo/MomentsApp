@@ -30,7 +30,9 @@ export const ActivitiesPage = () => {
     };
 
     fetchActivities();
+  }, []);
 
+  useEffect(() => {
     const handleScroll = () => {
       if (!containerRef.current) return;
 
@@ -56,7 +58,7 @@ export const ActivitiesPage = () => {
   }
 
   return (
-    <div className="flex-1 overflow-y-auto p-8" ref={containerRef}>
+    <div className="flex-1 overflow-y-auto p-8 pb-20" ref={containerRef}>
       <span className="text-2xl font-medium uppercase tracking-wide">
         Moments
       </span>
@@ -72,9 +74,9 @@ export const ActivitiesPage = () => {
         ))}
       </ul>
       {loadingMore && (
-        <p className="text-center mt-6 text-gray-500">
-          Loading more activities...
-        </p>
+        <div className="flex justify-center mt-6">
+          <div className="w-8 h-8 border-4 border-gray-300 border-t-blue-500 rounded-full animate-spin"></div>
+        </div>
       )}
     </div>
   );

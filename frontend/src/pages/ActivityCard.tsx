@@ -13,6 +13,7 @@ export const ActivityCard = ({ activity }: { activity: Activity }) => {
     <li className="group bg-white rounded-2xl shadow-sm shadow-lg hover:scale-105 transition-all duration-300 overflow-hidden">
       <div className="relative h-48">
         <img
+          loading="lazy"
           src={activity.image_url}
           alt={activity.title}
           className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"

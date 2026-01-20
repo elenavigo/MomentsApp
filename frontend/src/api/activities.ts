@@ -45,6 +45,5 @@ export async function getActivities(
 
   const res = await axios.get(endpoint, { signal });
 
-  console.log('Fetched activities from:', res.data.results);
   return res.data;
 }

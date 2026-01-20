@@ -10,6 +10,8 @@ export const ActivitiesList = () => {
   const [loadingMore, setLoadingMore] = useState(false);
   const [nextPage, setNextPage] = useState<string | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const debounceRef = useRef<number | null>(null);
+  const abortRef = useRef<AbortController | null>(null);
 
   const [minPeopleFilter, setMinPeopleFilter] = useState(2);
   const [maxPeopleFilter, setMaxPeopleFilter] = useState(40);
@@ -67,19 +69,47 @@ export const ActivitiesList = () => {
   }, [loadMore]);
 
   useEffect(() => {
-    const applyFilters = async () => {
-      setLoading(true);
-      const data = await getActivities(undefined, {
-        min_people: minPeopleFilter,
-        max_people: maxPeopleFilter,
-        categories: categoriesFilter,
-      });
+    if (debounceRef.current) clearTimeout(debounceRef.current);
 
-      setActivities(activitiesWithDistance(data.results));
-      setLoading(false);
+    debounceRef.current = setTimeout(() => {
+      if (abortRef.current) abortRef.current.abort();
+
+      const controller = new AbortController();
+      abortRef.current = controller;
+
+      const applyFilters = async () => {
+        try {
+          setLoading(true);
+          const data = await getActivities(
+            undefined,
+            {
+              min_people: minPeopleFilter,
+              max_people: maxPeopleFilter,
+              categories: categoriesFilter,
+            },
+            controller.signal
+          );
+
+          setActivities(activitiesWithDistance(data.results));
+        } catch (err) {
+          if ((err as any).name === 'AbortError') {
+            console.log('Request aborted');
+          } else {
+            console.error(err);
+          }
+        }
+
+        setLoading(false);
+        setLoadingMore(false);
+      };
+
+      applyFilters();
+    }, 1500);
+
+    return () => {
+      if (debounceRef.current) clearTimeout(debounceRef.current);
+      if (abortRef.current) abortRef.current.abort();
     };
-
-    applyFilters();
   }, [minPeopleFilter, maxPeopleFilter, categoriesFilter]);
 
   if (loading) {

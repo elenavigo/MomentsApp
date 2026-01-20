@@ -20,11 +20,12 @@ export type PaginatedResponse = {
 
 export async function getActivities(
   endpoint = 'http://127.0.0.1:8000/api/activities/',
-  filters: {
+  filters?: {
     min_people?: number;
     max_people?: number;
     categories?: string[];
-  }
+  },
+  signal?: AbortSignal
 ): Promise<PaginatedResponse> {
   if (filters) {
     const params = new URLSearchParams();
@@ -42,6 +43,6 @@ export async function getActivities(
     endpoint += `?${params.toString()}`;
   }
 
-  const res = await axios.get(endpoint);
+  const res = await axios.get(endpoint, { signal });
   return res.data;
 }

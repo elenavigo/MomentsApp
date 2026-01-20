@@ -50,22 +50,26 @@ export const ActivityFilters = ({
       {open && (
         <div
           ref={panelRef}
-          className="absolute left-0 mt-3 w-80 rounded-xl bg-gray-100 shadow-lg p-4 z-50"
+          className="absolute left-0 mt-3 w-100 rounded-xl bg-gray-100 shadow-lg p-4 z-50 flex gap-5"
         >
-          <CategoriesFilters
-            categoriesFilter={categoriesFilter}
-            setCategoriesFilter={setCategoriesFilter}
-          />
-          <PeopleFilter
-            minPeopleFilter={minPeopleFilter}
-            maxPeopleFilter={maxPeopleFilter}
-            setMinPeopleFilter={setMinPeopleFilter}
-            setMaxPeopleFilter={setMaxPeopleFilter}
-          />
-          <DistanceFilter
-            distanceFilter={distanceFilter}
-            setDistanceFilter={setDistanceFilter}
-          />
+          <div className="w-[40%]">
+            <CategoriesFilters
+              categoriesFilter={categoriesFilter}
+              setCategoriesFilter={setCategoriesFilter}
+            />
+          </div>
+          <div className="flex-1 flex flex-col gap-6">
+            <PeopleFilter
+              minPeopleFilter={minPeopleFilter}
+              maxPeopleFilter={maxPeopleFilter}
+              setMinPeopleFilter={setMinPeopleFilter}
+              setMaxPeopleFilter={setMaxPeopleFilter}
+            />
+            <DistanceFilter
+              distanceFilter={distanceFilter}
+              setDistanceFilter={setDistanceFilter}
+            />
+          </div>
         </div>
       )}
     </div>

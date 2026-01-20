@@ -14,7 +14,7 @@ export const PeopleFilter = ({
   setMaxPeopleFilter,
 }: PeopleFilterProps) => {
   return (
-    <div className="flex flex-col gap-8 mt-4">
+    <div className="flex flex-col gap-8">
       <p className="text-sm font-medium">People</p>
       <div className="flex items-center gap-2 pb-3">
         <DualRangeSlider

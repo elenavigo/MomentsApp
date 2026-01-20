@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { getActivities, type Activity } from '../../api/activities';
 import { ActivityCard } from '../../components/ActivityCard';
 import { getDistanceFromLatLngInKm } from '../../utils/geo';
+import { ActivityFilters } from '../../components/ActivityFilters';
 
 export const ActivitiesList = () => {
   const [activities, setActivities] = useState<Activity[]>([]);
@@ -9,6 +10,10 @@ export const ActivitiesList = () => {
   const [loadingMore, setLoadingMore] = useState(false);
   const [nextPage, setNextPage] = useState<string | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
+
+  const [minPeopleFilter, setMinPeopleFilter] = useState(2);
+  const [maxPeopleFilter, setMaxPeopleFilter] = useState(40);
+  const [categoriesFilter, setCategoriesFilter] = useState<string[]>([]);
 
   const activitiesWithDistance = (activities: Activity[]) => {
     return activities.map((activity) => ({
@@ -78,6 +83,15 @@ export const ActivitiesList = () => {
         Great teams are built through shared moments. Discover simple, memorable
         activities for your team. Just a couple of clicks away.
       </p>
+
+      <ActivityFilters
+        minPeopleFilter={minPeopleFilter}
+        maxPeopleFilter={maxPeopleFilter}
+        setMinPeopleFilter={setMinPeopleFilter}
+        setMaxPeopleFilter={setMaxPeopleFilter}
+        categoriesFilter={categoriesFilter}
+        setCategoriesFilter={setCategoriesFilter}
+      />
 
       <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 cursor-pointer">
         {activities.map((activity) => (

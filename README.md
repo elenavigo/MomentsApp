@@ -4,6 +4,9 @@ The goal of Moments is simple: **make it easy to find and organize team activiti
 
 Target user are managers looking for teambuildings for their teams.
 
+**Live demo**:
+Find it live here https://momentsapp-frontend.onrender.com/ 🚀 (The backend may take up to 5 minutes to wake up: https://momentsapp.onrender.com/)
+
 ## ✨ Features
 
 - Browse curated team activities

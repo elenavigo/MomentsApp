@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-ggvbwq$hb!pagi^2-e3i1jm!a)mqz2@g(3m+@q!hq3qoqw32ap
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["momentsapp.onrender.com"]
+ALLOWED_HOSTS = ["momentsapp.onrender.com", "127.0.0.1"]
 
 
 # Application definition

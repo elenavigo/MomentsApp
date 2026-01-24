@@ -18,8 +18,11 @@ export type PaginatedResponse = {
   results: Activity[];
 };
 
+const API_BASE_URL =
+  import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:8000/api';
+
 export async function getActivities(
-  endpoint = 'http://127.0.0.1:8000/api/activities/',
+  endpoint = `${API_BASE_URL}/activities/`,
   filters?: {
     min_people?: number;
     max_people?: number;

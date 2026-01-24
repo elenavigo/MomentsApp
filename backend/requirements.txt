@@ -3,5 +3,7 @@ Django==6.0.1
 django-cors-headers==4.9.0
 djangorestframework==3.16.1
 Faker==40.1.2
+gunicorn==24.1.1
+packaging==26.0
 pillow==12.1.0
 sqlparse==0.5.5

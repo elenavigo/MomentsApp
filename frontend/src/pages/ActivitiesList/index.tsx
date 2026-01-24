@@ -9,7 +9,7 @@ export const ActivitiesList = () => {
   const [loadingMore, setLoadingMore] = useState(false);
   const [nextPage, setNextPage] = useState<string | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const debounceRef = useRef<number | null>(null);
+  const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const abortRef = useRef<AbortController | null>(null);
 
   const [minPeopleFilter, setMinPeopleFilter] = useState(2);

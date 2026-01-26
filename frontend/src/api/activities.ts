@@ -1,3 +1,4 @@
+import { DEFAULT_FILTERS } from '@/hooks/useActivities';
 import axios from 'axios';
 
 export interface Activity {
@@ -27,18 +28,30 @@ export type FiltersType = {
   categories?: string[];
 };
 
-export async function getActivities(
+export type GetActivitiesParams = {
+  endpoint?: string;
+  filters?: FiltersType;
+  signal?: AbortSignal;
+};
+
+export async function getActivities({
   endpoint = `${API_BASE_URL}/activities/`,
-  filters?: FiltersType,
-  signal?: AbortSignal
-): Promise<PaginatedResponse> {
+  filters,
+  signal,
+}: GetActivitiesParams): Promise<PaginatedResponse> {
   if (filters) {
     const params = new URLSearchParams();
 
-    if (filters.min_people) {
+    if (
+      filters.min_people &&
+      filters.min_people !== DEFAULT_FILTERS.minPeople
+    ) {
       params.append('min_people', filters.min_people.toString());
     }
-    if (filters.max_people) {
+    if (
+      filters.max_people &&
+      filters.max_people !== DEFAULT_FILTERS.maxPeople
+    ) {
       params.append('max_people', filters.max_people.toString());
     }
     if (filters.categories && filters.categories.length > 0) {

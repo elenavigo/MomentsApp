@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import {
   getActivities,
   type Activity,
-  type FiltersType,
+  type GetActivitiesParams,
 } from '../api/activities';
 
 type Filters = {
@@ -12,34 +12,50 @@ type Filters = {
   distance: number;
 };
 
+export const DEFAULT_FILTERS = {
+  minPeople: 2,
+  maxPeople: 40,
+  categories: [],
+  distance: 100,
+};
+
 export const useActivities = () => {
   const [activities, setActivities] = useState<Activity[]>([]);
   const [loadingFirstActivities, setLoadingFirstActivities] = useState(true);
   const [nextPage, setNextPage] = useState<string | null>(null);
   const [loadingNextPage, setLoadingNextPage] = useState(false);
 
-  const [filters, setFilters] = useState<Filters>({
-    minPeople: 2,
-    maxPeople: 40,
-    categories: [],
-    distance: 100,
-  });
+  const [filters, setFilters] = useState<Filters>(DEFAULT_FILTERS);
 
   const abortRef = useRef<AbortController | null>(null);
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const isFirstRender = useRef(true);
 
   const fetchActivities = useCallback(
-    async (endpoint?: string, filters?: FiltersType, signal?: AbortSignal) => {
+    async (fetchOptions: GetActivitiesParams = {}, append = false) => {
       try {
-        setLoadingFirstActivities(true);
-        const data = await getActivities(endpoint, filters, signal);
-        setActivities(data.results);
+        if (append) {
+          setLoadingNextPage(true);
+        } else {
+          setLoadingFirstActivities(true);
+        }
+
+        const data = await getActivities(fetchOptions);
+        setActivities((prev) => {
+          if (!append) return data.results;
+
+          const ids = new Set(prev.map((a) => a.id));
+          return [...prev, ...data.results.filter((a) => !ids.has(a.id))];
+        });
+
         setNextPage(data.next);
       } catch (err) {
         console.error(err);
       } finally {
-        setLoadingFirstActivities(false);
+        if (append) {
+          setLoadingNextPage(false);
+        } else {
+          setLoadingFirstActivities(false);
+        }
       }
     },
     []
@@ -50,8 +66,13 @@ export const useActivities = () => {
   }, [fetchActivities]);
 
   useEffect(() => {
-    if (isFirstRender.current) {
-      isFirstRender.current = false;
+    const filtersAreDefault =
+      filters.minPeople === DEFAULT_FILTERS.minPeople &&
+      filters.maxPeople === DEFAULT_FILTERS.maxPeople &&
+      filters.categories.length === 0 &&
+      filters.distance === DEFAULT_FILTERS.distance;
+
+    if (filtersAreDefault) {
       return;
     }
 
@@ -64,15 +85,10 @@ export const useActivities = () => {
       abortRef.current = controller;
 
       const applyFilters = async () => {
-        fetchActivities(
-          undefined,
-          {
-            min_people: filters.minPeople,
-            max_people: filters.maxPeople,
-            categories: filters.categories,
-          },
-          controller.signal
-        );
+        fetchActivities({
+          filters,
+          signal: controller.signal,
+        });
       };
 
       applyFilters();
@@ -87,24 +103,13 @@ export const useActivities = () => {
   const loadMore = useCallback(async () => {
     if (!nextPage || loadingNextPage) return;
 
-    setLoadingNextPage(true);
-
-    try {
-      const data = await getActivities(nextPage);
-
-      setActivities((prev) => {
-        const ids = new Set(prev.map((a) => a.id));
-        const newOnes = data.results.filter((a) => !ids.has(a.id));
-        return [...prev, ...newOnes];
-      });
-
-      setNextPage(data.next);
-    } catch (err) {
-      console.error(err);
-    } finally {
-      setLoadingNextPage(false);
-    }
-  }, [nextPage, loadingNextPage]);
+    fetchActivities(
+      {
+        endpoint: nextPage,
+      },
+      true
+    );
+  }, [nextPage, loadingNextPage, fetchActivities]);
 
   return {
     activities,

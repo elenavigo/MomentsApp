@@ -48,8 +48,16 @@ export const Menu = () => {
           <button className="text-gray-700 hover:text-black font-medium text-left">
             Moments
           </button>
-          <button className="text-gray-700 hover:text-black font-medium text-left">
-            Account
+          <button className="relative group text-gray-700 font-medium text-left overflow-hidden rounded-md">
+            <span className="block transition-opacity duration-200 group-hover:opacity-30">
+              Account
+            </span>
+
+            <span className="pointer-events-none absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-start px-2">
+              <span className="text-white text-xs font-semibold tracking-wide uppercase bg-black/60 px-3 py-1 rounded-full backdrop-blur-sm">
+                Coming soon
+              </span>
+            </span>
           </button>
         </nav>
       </aside>

@@ -8,11 +8,11 @@ export const ActivityCard = ({ activity }: { activity: ActivityItem }) => {
 
   return (
     <li
-      className={`flex flex-col justify-between group bg-white rounded-2xl shadow-sm shadow-lg hover:scale-105 transition-all duration-300 overflow-hidden ${
+      className={`flex flex-col justify-between group bg-white rounded-2xl shadow-sm hover:shadow-lg hover:scale-105 transition-all duration-300 overflow-hidden cursor-pointer ${
         imageLoaded && 'animate-fadeIn'
       }`}
     >
-      <div className="relative h-48">
+      <div className="relative h-48 overflow-hidden">
         <img
           loading="lazy"
           src={activity.image_url}
@@ -26,6 +26,12 @@ export const ActivityCard = ({ activity }: { activity: ActivityItem }) => {
         ) : (
           <div className="absolute inset-0 bg-gray-200 animate-pulse" />
         )}
+
+        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+          <span className="text-white text-sm font-semibold tracking-wide uppercase bg-black/60 px-4 py-2 rounded-full backdrop-blur-sm">
+            Coming soon
+          </span>
+        </div>
       </div>
 
       {imageLoaded && <ActivityContent activity={activity} />}

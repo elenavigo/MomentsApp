@@ -86,6 +86,7 @@ export const ActivitiesList = () => {
           );
 
           setActivities(data.results);
+          setNextPage(data.next);
         } catch (err) {
           if ((err as any).name === 'AbortError') {
             console.log('Request aborted');
@@ -95,7 +96,6 @@ export const ActivitiesList = () => {
         }
 
         setLoading(false);
-        setLoadingMore(false);
       };
 
       applyFilters();
@@ -116,7 +116,10 @@ export const ActivitiesList = () => {
   }
 
   return (
-    <div className="flex-1 overflow-y-auto p-8 pb-20" ref={containerRef}>
+    <div
+      className="flex-1 overflow-y-auto p-8 pb-20 h-[calc(100vh-50px)]"
+      ref={containerRef}
+    >
       <span className="text-2xl font-medium uppercase tracking-wide">
         Moments
       </span>

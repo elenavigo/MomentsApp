@@ -105,7 +105,7 @@ export const useActivities = () => {
 
     fetchActivities(
       {
-        endpoint: nextPage,
+        url: nextPage,
       },
       true
     );

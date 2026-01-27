@@ -29,13 +29,13 @@ export type FiltersType = {
 };
 
 export type GetActivitiesParams = {
-  endpoint?: string;
+  url?: string;
   filters?: FiltersType;
   signal?: AbortSignal;
 };
 
 export async function getActivities({
-  endpoint = `${API_BASE_URL}/activities/`,
+  url = `${API_BASE_URL}/activities/`,
   filters,
   signal,
 }: GetActivitiesParams): Promise<PaginatedResponse> {
@@ -58,10 +58,10 @@ export async function getActivities({
       params.append('categories', filters.categories.join(','));
     }
 
-    endpoint += `?${params.toString()}`;
+    url += `?${params.toString()}`;
   }
 
-  const res = await axios.get(endpoint, { signal });
+  const res = await axios.get(url, { signal });
 
   return res.data;
 }

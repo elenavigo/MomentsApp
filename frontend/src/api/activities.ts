@@ -26,6 +26,7 @@ export type FiltersType = {
   min_people?: number;
   max_people?: number;
   categories?: string[];
+  distance?: number;
 };
 
 export type GetActivitiesParams = {
@@ -56,6 +57,9 @@ export async function getActivities({
     }
     if (filters.categories && filters.categories.length > 0) {
       params.append('categories', filters.categories.join(','));
+    }
+    if (filters.distance && filters.distance !== DEFAULT_FILTERS.distance) {
+      params.append('distance', filters.distance.toString());
     }
 
     url += `?${params.toString()}`;

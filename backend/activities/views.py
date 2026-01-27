@@ -2,15 +2,38 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.pagination import PageNumberPagination
 from activities.models import Activity
-from django.db.models import Q
+from django.db.models import Q, F, FloatField, ExpressionWrapper
 from activities.utils import get_distance_from_lat_lon_km
+from django.db.models.functions import Power, Sqrt
 
 class ActivityListView(APIView):
+    office_lat = 41.38
+    office_lng = 2.17
+
+    @staticmethod
+    def _filter_queryset_by_distance(queryset, distance_km, lat, lng):
+        if not distance_km:
+            return queryset
+        queryset = queryset.annotate(
+                lat=F("location__lat"),
+                lng=F("location__lng"),
+            ).annotate(
+                distance_km=ExpressionWrapper(
+                    Sqrt(
+                        Power(F("lat") - lat, 2) +
+                        Power(F("lng") - lng, 2)
+                    ) * 111, 
+                    output_field=FloatField()
+                ))
+        return queryset.filter(distance_km__lte=distance_km)
+
+
     def get(self, request):
         search_term = request.query_params.get('search_term')
         min_people = request.query_params.get('min_people')
         max_people = request.query_params.get('max_people')
         categories = request.query_params.get('categories')
+        distance = request.query_params.get('distance')
 
         activities = Activity.objects.all()
 
@@ -20,6 +43,14 @@ class ActivityListView(APIView):
             activities = activities.filter(max_people__gte=min_people)
         if max_people:
             activities = activities.filter(min_people__lte=max_people)
+        if distance:
+            distance_km = float(distance) / 1000
+            activities = self._filter_queryset_by_distance(
+                activities,
+                distance_km,
+                lat=self.office_lat,
+                lng=self.office_lng
+            )
         if search_term:
             activities = activities.filter(
                 Q(title__icontains=search_term) | Q(description__icontains=search_term)
@@ -44,3 +75,5 @@ class ActivityListView(APIView):
             for activity in paginated_activities
         ]
         return paginator.get_paginated_response(data)
+
+    

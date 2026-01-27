@@ -50,7 +50,7 @@ export const ActivityFilters = ({
       {open && (
         <div
           ref={panelRef}
-          className="absolute left-0 mt-3 w-100 rounded-xl bg-gray-100 shadow-lg p-4 z-50 flex gap-5"
+          className="absolute left-0 mt-3 w-100 rounded-xl bg-gray-200 shadow-lg p-4 z-50 flex gap-5"
         >
           <div className="w-[40%]">
             <CategoriesFilters

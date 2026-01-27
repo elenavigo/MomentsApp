@@ -16,7 +16,7 @@ export const DEFAULT_FILTERS = {
   minPeople: 2,
   maxPeople: 40,
   categories: [],
-  distance: 100,
+  distance: 6000,
 };
 
 export const useActivities = () => {

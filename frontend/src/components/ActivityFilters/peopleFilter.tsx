@@ -1,3 +1,4 @@
+import { DEFAULT_FILTERS } from '@/hooks/useActivities';
 import { DualRangeSlider } from '../ui/dualRangeSlider';
 
 interface PeopleFilterProps {
@@ -23,8 +24,8 @@ export const PeopleFilter = ({
             setMinPeopleFilter(newValues[0]);
             setMaxPeopleFilter(newValues[1]);
           }}
-          min={2}
-          max={40}
+          min={DEFAULT_FILTERS.minPeople}
+          max={DEFAULT_FILTERS.maxPeople}
           step={1}
           label={(value) => <span className="text-sm">{value}</span>}
         />

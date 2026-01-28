@@ -51,7 +51,7 @@ export const useActivities = () => {
         setNextPage(data.next);
       } catch (err) {
         console.error(err);
-        if (err.name === 'AbortError') return;
+        if (err instanceof Error && err.name === 'AbortError') return;
         setError(
           'Hey! Looks like the backend is asleep 😴. Give it a nudge by visiting this link, it’ll be ready in a few minutes.'
         );

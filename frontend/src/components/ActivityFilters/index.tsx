@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { PeopleFilter } from './peopleFilter';
 import { CategoriesFilters } from './categoriesFilter';
 import { DistanceFilter } from './distanceFilter';
+import { cn } from '@/lib/utils';
 
 interface ActivityFiltersProps {
   categoriesFilter: string[];
@@ -42,7 +43,10 @@ export const ActivityFilters = ({
     <div className="relative mb-6">
       <button
         onClick={() => setOpen((prev) => !prev)}
-        className="text-sm font-medium text-gray-700 hover:text-black transition"
+        className={cn(
+          open && 'bg-white! rounded-b-none! shadow-lg',
+          'text-md font-medium text-gray-800 hover:text-black transition px-8!'
+        )}
       >
         Filters
       </button>
@@ -50,7 +54,7 @@ export const ActivityFilters = ({
       {open && (
         <div
           ref={panelRef}
-          className="absolute left-0 mt-3 w-100 rounded-xl bg-gray-200 shadow-lg p-4 z-50 flex gap-5"
+          className="absolute left-0 w-full md:w-120 rounded-b-xl rounded-tr-xl bg-white shadow-lg p-5 z-50 flex gap-5"
         >
           <div className="w-[40%]">
             <CategoriesFilters
@@ -59,15 +63,15 @@ export const ActivityFilters = ({
             />
           </div>
           <div className="flex-1 flex flex-col gap-6">
+            <DistanceFilter
+              distanceFilter={distanceFilter}
+              setDistanceFilter={setDistanceFilter}
+            />
             <PeopleFilter
               minPeopleFilter={minPeopleFilter}
               maxPeopleFilter={maxPeopleFilter}
               setMinPeopleFilter={setMinPeopleFilter}
               setMaxPeopleFilter={setMaxPeopleFilter}
-            />
-            <DistanceFilter
-              distanceFilter={distanceFilter}
-              setDistanceFilter={setDistanceFilter}
             />
           </div>
         </div>

@@ -17,7 +17,7 @@ export const DistanceFilter = ({
 }: DistanceFilterProps) => {
   return (
     <div className="flex flex-col gap-8">
-      <p className="text-sm font-medium">Distance (from office)</p>
+      <p className="text-sm font-medium">Km from office</p>
       <div className="flex items-center gap-2 pb-3">
         <Location className="inline-block h-5 w-5" />
         <Slider

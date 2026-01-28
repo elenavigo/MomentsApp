@@ -1,17 +1,17 @@
 from rest_framework.views import APIView
-from rest_framework.response import Response
 from rest_framework.pagination import PageNumberPagination
-from activities.models import Activity
+
 from django.db.models import Q, F, FloatField, ExpressionWrapper
-from activities.utils import get_distance_from_lat_lon_km
 from django.db.models.functions import Power, Sqrt
 
-class ActivityListView(APIView):
-    office_lat = 41.38
-    office_lng = 2.17
+from activities.models import Activity
+from activities.utils import get_distance_from_lat_lng_km
+from activities.constants import OFFICE_COORDINATES
 
+
+class ActivityListView(APIView):
     @staticmethod
-    def _filter_queryset_by_distance(queryset, distance_km, lat, lng):
+    def _filter_queryset_by_distance(queryset, distance_km):
         if not distance_km:
             return queryset
         queryset = queryset.annotate(
@@ -20,8 +20,8 @@ class ActivityListView(APIView):
             ).annotate(
                 distance_km=ExpressionWrapper(
                     Sqrt(
-                        Power(F("lat") - lat, 2) +
-                        Power(F("lng") - lng, 2)
+                        Power(F("lat") - OFFICE_COORDINATES["lat"], 2) +
+                        Power(F("lng") - OFFICE_COORDINATES["lng"], 2)
                     ) * 111, 
                     output_field=FloatField()
                 ))
@@ -47,9 +47,7 @@ class ActivityListView(APIView):
             distance_km = float(distance) / 1000
             activities = self._filter_queryset_by_distance(
                 activities,
-                distance_km,
-                lat=self.office_lat,
-                lng=self.office_lng
+                distance_km
             )
         if search_term:
             activities = activities.filter(
@@ -68,7 +66,7 @@ class ActivityListView(APIView):
                 "max_people": activity.max_people,
                 "category": activity.category,
                 "location": activity.location,
-                "distance": get_distance_from_lat_lon_km(
+                "distance": get_distance_from_lat_lng_km(
                     activity.location["lat"], activity.location["lng"]
                 )
             }
